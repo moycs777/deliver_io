@@ -15,8 +15,9 @@
     Route::group(['middleware' => 'auth:blogger'], function () {
         Auth::routes();
         Route::view('/blogger', 'blogger');
-        });
-        Route::group(['middleware' => 'auth:admin'], function () {
+    });
+    
+    Route::group(['middleware' => 'auth:admin'], function () {
         Auth::routes();
         Route::view('/admin', 'admin');
     });

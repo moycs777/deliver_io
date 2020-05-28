@@ -8,7 +8,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    Hi there, awesome blogger
+                    # Hi there, awesome blogger
                 </div>
             </div>
         </div>
