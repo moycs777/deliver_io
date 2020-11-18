@@ -43,9 +43,11 @@ class ApiAuthController extends Controller
 
 
         if ($request->password != null) {
+
             $unhashed_password = $request->password;
             $password = Hash::make($request->password);
-            $request->merge(['password' => $password]);
+            $request->merge(['password' => $password, 'unhashed_password' => $unhashed_password]);
+            
         }
         
         if($request->password == null){
@@ -94,10 +96,10 @@ class ApiAuthController extends Controller
         if ($credentials['login_type'] == 'email') {
 
             $data['email'] = $credentials['email'];
-            $data['password'] = 12345678;
+            $data['password'] = $credentials['unhashed_password'];
             
             if (! $token = auth()->attempt($data)) {
-                return response()->json(['error' => 'Unauthorized'], 401);
+                return response()->json(['error' => 'Unauthorized '.$credentials['unhashed_password'].''], 401);
             }
             
         }
