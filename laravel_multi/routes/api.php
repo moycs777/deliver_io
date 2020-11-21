@@ -23,3 +23,5 @@ Route::group([
     Route::post('me', 'ApiAuthController@me');
 
 });
+
+Route::apiResource('/api/categories', CategoryController::class);
