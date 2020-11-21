@@ -4,18 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Category;
+use App\Tag;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     public function index()
     {
-
-        $categories = Category::with('tags')->get();
+        $tags = Tag::with('category')->get();
 
         return response()->json([
-            'data' => $categories,
+            'data' => $tags,
         ]);
     }
 }
-
