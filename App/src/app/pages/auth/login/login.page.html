@@ -1,9 +1,56 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header>    
 
-<ion-content>
+
+<ion-content  padding>
+  <form  #form="ngForm" (ngSubmit)="login(form)" method="post">
+    <ion-grid>
+      <ion-row  justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <br>
+          <div class="ion-text-center">
+            <h1>Log In</h1>
+          </div>
+          <br>
+          <div padding>
+            <ion-item lines="full">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input name="email" type="email" ngModel required></ion-input>
+            </ion-item>
+            <br>
+            <ion-item lines="full">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input name="password" type="password"  ngModel required></ion-input>
+            </ion-item>
+            <br>
+          </div>
+          <div padding>
+            <br>
+            
+            <ion-row>
+              <ion-col>            
+                <ion-button size="large" type="submit" [disabled]="form.invalid" color="danger" shape="round" expand="block" >Sign In</ion-button>
+                <a [routerLink]="['/forgot-password']" class="small-text"> <h5 class="ion-text-end">Forgot Password?</h5></a>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+            <div class="ion-text-center">
+              <h1>Or</h1>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  
 
 </ion-content>
+
